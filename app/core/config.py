@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     MONGO_URL: str = "mongodb://localhost:27017"
     DATABASE_NAME: str = "linkedin_insights"
     HUGGINGFACE_API_KEY: str = "" # User must provide this in .env
+    LINKEDIN_COOKIE: str | None = None
     
     class Config:
         env_file = ".env"
