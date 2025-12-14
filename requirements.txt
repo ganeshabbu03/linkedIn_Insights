@@ -14,3 +14,4 @@ certifi
 aiocache
 aiohttp
 aiofiles
+playwright-stealth

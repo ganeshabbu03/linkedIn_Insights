@@ -28,7 +28,11 @@ class LinkedInScraper:
                     user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                     viewport={'width': 1920, 'height': 1080}
                 )
+                
+                # Apply stealth
+                from playwright_stealth import stealth_async
                 page = await context.new_page()
+                await stealth_async(page)
                 
                 url = f"https://www.linkedin.com/company/{page_id}"
                 logger.info(f"Navigating to {url}")
