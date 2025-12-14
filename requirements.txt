@@ -7,3 +7,10 @@ pydantic-settings
 beautifulsoup4
 lxml
 requests
+huggingface_hub
+python-dotenv
+dnspython
+certifi
+aiocache
+aiohttp
+aiofiles
