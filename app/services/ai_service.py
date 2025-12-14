@@ -11,8 +11,8 @@ class AIService:
         self.api_key = settings.HUGGINGFACE_API_KEY
         
         # Default to a reliable free model if key is present
-        # Switching to Phi-3 which is widely supported and lightweight
-        self.model_id = "microsoft/Phi-3-mini-4k-instruct" 
+        # Qwen 2.5 7B is versatile and widely endorsed on the Hub
+        self.model_id = "Qwen/Qwen2.5-7B-Instruct" 
         
         if self.api_key:
             self.client = AsyncInferenceClient(token=self.api_key)

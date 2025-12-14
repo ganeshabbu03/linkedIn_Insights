@@ -198,8 +198,12 @@ class LinkedInScraper:
                                      return True
                                  return False
                     
-                    # Run download
-                    if await download_image(image, file_path):
+                    # Run download (Skip on Render/Cloud to avoid 404s due to ephemeral filesystem)
+                    import os
+                    if os.environ.get("RENDER") or os.environ.get("VERCEL"):
+                        logger.info("Running on Cloud: Skipping local image download for persistence.")
+                        # Keep the remote URL
+                    elif await download_image(image, file_path):
                          logger.info(f"Downloaded profile pic to {file_path}")
                          # Set new local URL
                          image = f"/static/images/{filename}"
