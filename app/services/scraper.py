@@ -31,6 +31,20 @@ class LinkedInScraper:
                 
                 # Apply stealth
                 from playwright_stealth import stealth_async
+                
+                # Add specific headers and cookies to simulate a logged-in user (Bypass Auth Wall)
+                # This is CRITICAL for Cloud/Render environments
+                import os
+                li_at = os.environ.get("LINKEDIN_COOKIE")
+                if li_at:
+                    logger.info("Injecting LinkedIn Session Cookie")
+                    await context.add_cookies([{
+                        "name": "li_at",
+                        "value": li_at,
+                        "domain": ".linkedin.com",
+                        "path": "/"
+                    }])
+                
                 page = await context.new_page()
                 await stealth_async(page)
                 

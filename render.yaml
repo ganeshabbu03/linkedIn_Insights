@@ -15,3 +15,5 @@ services:
         sync: false
       - key: HUGGINGFACE_API_KEY
         sync: false
+      - key: LINKEDIN_COOKIE
+        sync: false
