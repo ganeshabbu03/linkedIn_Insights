@@ -1,4 +1,4 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
 from dotenv import load_dotenv
 
@@ -11,8 +11,11 @@ class Settings(BaseSettings):
     HUGGINGFACE_API_KEY: str = "" # User must provide this in .env
     LINKEDIN_COOKIE: str | None = None
     
-    class Config:
-        env_file = ".env"
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore",
+        case_sensitive=False
+    )
 
 @lru_cache()
 def get_settings():
