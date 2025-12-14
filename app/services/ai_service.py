@@ -11,8 +11,8 @@ class AIService:
         self.api_key = settings.HUGGINGFACE_API_KEY
         
         # Default to a reliable free model if key is present
-        # Zephyr 7B Beta is highly reliable on the free inference API
-        self.model_id = "HuggingFaceH4/zephyr-7b-beta" 
+        # Switching to Phi-3 which is widely supported and lightweight
+        self.model_id = "microsoft/Phi-3-mini-4k-instruct" 
         
         if self.api_key:
             self.client = AsyncInferenceClient(token=self.api_key)
