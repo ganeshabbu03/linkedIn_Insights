@@ -13,6 +13,7 @@ class LinkedInScraper:
 
     async def scrape_page(self, page_id: str) -> Page:
         try:
+            browser = None
             async with async_playwright() as p:
                 # Launch browser with stealth args
                 browser = await p.chromium.launch(
@@ -52,7 +53,8 @@ class LinkedInScraper:
             # with open(f"debug_{page_id}.html", "w", encoding="utf-8") as f:
             #     f.write(await page.content())
             
-            await browser.close()
+            if browser:
+                await browser.close()
             return self._get_mock_page(page_id)
 
     async def _extract_page_details(self, page: PlaywrightPage, page_id: str) -> Page:
