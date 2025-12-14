@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Insights | Deep Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LinkedIn Insights</h1>
+            <p class="subtitle">Deep dive into company analytics powered by AI</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="pageIdInput" placeholder="Enter Company Page ID (e.g., deepsolv, google, netflix)">
+            <button onclick="fetchInsights()" id="searchBtn">Get Insights</button>
+        </div>
+
+        <div id="loader" style="display: none; text-align: center;">
+            <div class="loader"></div>
+            <p style="color: var(--text-secondary); margin-top: 1rem;">Scanning LinkedIn network...</p>
+        </div>
+
+        <div id="result" class="result-card">
+            <div class="card-header">
+                <img id="profilePic" src="" alt="Profile" class="profile-pic">
+                <div>
+                    <h2 id="pageName" style="font-size: 2rem; margin-bottom: 0.5rem;"></h2>
+                    <a id="pageUrl" href="#" target="_blank" style="color: var(--primary); text-decoration: none;">View on LinkedIn &rarr;</a>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-value" id="followerCount">-</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="industry">-</span>
+                    <span class="stat-label">Industry</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="headCount">-</span>
+                    <span class="stat-label">Employees</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-value" id="location">-</span>
+                    <span class="stat-label">Location</span>
+                </div>
+            </div>
+
+            <div class="ai-summary">
+                <div class="ai-badge">✨ AI Analysis</div>
+                <p id="aiSummaryText" style="color: var(--text-primary);">
+                    Thinking...
+                </p>
+            </div>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Key Employees</h3>
+            <div id="employeesGrid" class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                <!-- Employees injected here -->
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

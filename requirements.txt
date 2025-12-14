@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+motor
+beanie
+playwright
+pydantic-settings
+beautifulsoup4
+lxml
+requests

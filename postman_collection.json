@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "linkedin-insights-v1",
+		"name": "LinkedIn Insights API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Page Details (Scrape)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/page/deepsolv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"page",
+						"deepsolv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Pages (Filter)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/pages?min_followers=1000&industry=Technology",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"pages"
+					],
+					"query": [
+						{
+							"key": "min_followers",
+							"value": "1000"
+						},
+						{
+							"key": "industry",
+							"value": "Technology"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get AI Summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/page/deepsolv/summary",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"page",
+						"deepsolv",
+						"summary"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
